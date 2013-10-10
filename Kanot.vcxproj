@@ -78,14 +78,20 @@
   <ItemGroup>
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="jni\Engine.cpp" />
+    <ClCompile Include="Matic.cpp" />
     <ClCompile Include="OpenGL.cpp" />
+    <ClCompile Include="shapes.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="calc.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="jni\Engine.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="OpenGL.h" />
+    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Win32toAndroid.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
