@@ -32,5 +32,14 @@ namespace PM
 
 	}
 
+	Vector3 solve(Matrix3 leftM, Vector3 rightV)
+	{
+		Vector3 ansVec;
+		if(leftM.det()!=0)
+		ansVec = PM::vxm(rightV, leftM.invert());
+		return ansVec;
+	}
+
+
 
 }

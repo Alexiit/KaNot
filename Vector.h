@@ -13,13 +13,16 @@ namespace PM
 
 		float x,y,z;
 
-		Vector3 vPlus(Vector3);
+		Vector3 scal(float);
+		Vector3 plus(Vector3);
 		Vector3 neg();
 		Vector3 neg(char);
+		Vector3 minus(Vector3);
 		Vector3 swap(char, char);
 		float& operator [](int index);
 		const float& operator [](int index) const;
 
+		bool circleDot(Vector3);
 
 	};
 }

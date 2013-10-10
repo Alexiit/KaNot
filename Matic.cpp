@@ -1,5 +1,6 @@
 #include "Matrix.h"
 #include "vector.h"
+#include "Shapes.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -264,7 +265,7 @@ namespace PM
 
 
 	////////////////////////////////////////////////////////////// Vektori + Vektori /////////////////////////////////////////////////////////////////////////////
-	Vector3 Vector3::vPlus(Vector3 v)
+	Vector3 Vector3::plus(Vector3 v)
 	{
 		v.x+=x;
 		v.y+=y;
@@ -283,32 +284,32 @@ namespace PM
 
 	Vector3 Vector3::swap(char a, char b)
 	{
-	Vector3 swap;
-	if(a == 'x' && b == 'y')
-	{
-		char temp = a;
-		swap.x= y;
-		swap.y=temp;
-		swap.z=z;
-	}
+		Vector3 swap;
+		if(a == 'x' && b == 'y')
+		{
+			char temp = a;
+			swap.x= y;
+			swap.y=temp;
+			swap.z=z;
+		}
 
 		if(a == 'x' && b == 'z')
-	{
-		char temp = a;
-		swap.x= z;
-		swap.y=y;
-		swap.z=temp;
+		{
+			char temp = a;
+			swap.x= z;
+			swap.y=y;
+			swap.z=temp;
 
-	}
+		}
 
 		if(a == 'y' && b == 'z')
-	{
-		char temp = y;
-		swap.x= x;
-		swap.y=z;
-		swap.z=temp;
+		{
+			char temp = y;
+			swap.x= x;
+			swap.y=z;
+			swap.z=temp;
 
-	}
+		}
 
 		return swap;
 	}
@@ -337,340 +338,88 @@ namespace PM
 			neg.y=y;
 			neg.z=-z;
 
-		
-		return neg;}
+
+			return neg;}
 	}
+
+	Matrix3 Matrix3::scal(float scal)
+	{
+		Matrix3 mulMat;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+			mulMat.matrix[i][j] = Matrix3::matrix[i][j]*scal;
+			}
+		}
+		return mulMat;
+	}
+
+
+	Matrix3 Matrix3::add(Matrix3 other)
+	{
+		Matrix3 add;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				add.matrix[i][j] = Matrix3::matrix[i][j]+other.matrix[i][j];
+			}
+		}
+		return add;
+	
+	}
+
+		Matrix3 Matrix3::minus(Matrix3 other)
+	{
+		Matrix3 minus;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				minus.matrix[i][j] = Matrix3::matrix[i][j]-other.matrix[i][j];
+			}
+		}
+		return minus;
+	
+	}
+
+		void Matrix3::identity()
+		{
+			Matrix3 identity(1,0,0,0,1,0,0,0,1);
+		}
+
+
+		float Matrix3::det()
+		{
+		float det;
+		float op1=(matrix[0][0]*matrix[1][1]-matrix[0][1]*matrix[1][0])*matrix[2][2];
+		float op2=(matrix[0][0]*matrix[2][1]-matrix[0][1]*matrix[2][0])*matrix[1][2];
+		float op3=(matrix[1][0]*matrix[2][1]-matrix[2][0]*matrix[1][1])*matrix[0][2];
+		det = op1 - op2 + op3;
+
+		return det;
+		}
+
+	Vector3 Vector3::scal(float scal)
+	{
+	Vector3 product;
+	product.x=scal*x;
+	product.y=scal*y;
+	product.z=scal*z;
+	return product;
+	}
+
+
+	Vector3 Vector3::minus(Vector3 minusV)
+	{
+	Vector3 ans;
+	ans.x=x-minusV.x;
+	ans.y=y-minusV.y;
+	ans.z=z-minusV.z;
+	return ans;
+	}
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//int Matic::mxm(float mA[3][3], float mB[3][3])
-//	{
-//		float AB[3][3]={{0,0,0},{0,0,0},{0,0,0}}; // Matriisien kertolaskun vastaus tallentuu tähän
-//		bool okSuorit=0; // tästä voi tarkistaa, että prosessi on suoritettu loppuun
-//
-//		for(int i=0;i<3;i++)
-//		{
-//			for(int j=0; j<3;j++)
-//			{
-//				float vA[3]={mA[i][0],mA[i][1],mA[i][2]};
-//				float vB[3]={mB[0][j],mB[1][j],mB[2][j]};
-//
-//			AB[i][j]= Matic::dot(vA,vB);
-//			}
-//		}
-//
-//
-////------------matriisin piirto------------------------
-//
-//		for(int i=0; i<3;i++)
-//			{
-//				for(int j=0;j<3;j++)
-//				{
-//					cout << AB[i][j] << "   ";
-//				}
-//				cout << endl << endl;
-//			}
-////----------------------------------------------------
-//
-//	return okSuorit;
-//	}
-//
-//
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////     Determinant 2    //////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
-//float Matic::det2(float m22[2][2])
-//{
-//	float det=0;
-//
-//	det=m22[0][0]*m22[1][1]-m22[0][1]*m22[1][0];
-//	return det;
-//}
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////     Determinant 3    //////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//float det3(float m22[3][3])
-//{
-//	float det=0;
-//
-//	float op1=(m22[0][0]*m22[1][1]-m22[0][1]*m22[1][0])*m22[2][2];
-//	float op2=(m22[0][0]*m22[2][1]-m22[0][1]*m22[2][0])*m22[1][2];
-//	float op3=(m22[1][0]*m22[2][1]-m22[2][0]*m22[1][1])*m22[0][2];
-//	det = op1 - op2 + op3;
-//	return det;
-//}
-//
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////     Transponoitu Matriisi    ///////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//int Matic::transpose(float m33[3][3])
-//{
-//	float mt[3][3]={{0,0,0},{0,0,0},{0,0,0}};
-//	for(int i=0;i<3;i++)
-//		{
-//			for(int j=0; j<3;j++)
-//			{
-//				mt[i][j] = m33[j][i];
-//
-//
-//				cout << mt[i][j]<<"    ";
-//
-//			}
-//			cout <<endl<< endl;
-//		}
-//
-//	return 0;
-//}
-//
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////     Alideterminantti    ///////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
-//
-//float Matic::subDet(float m33[3][3],int RC[2])
-//{
-//	float dVertical[2][3]={{0,0,0},{0,0,0}};
-//	float dHorizontal[2][2]={{0,0},{0,0}};
-//	float subDet=0;
-////-------- Reducing row count ------------------
-//
-//	if(RC[0]==1) // Row #1 deletetd
-//		{
-//			dVertical[0][0]=m33[1][0];
-//			dVertical[0][1]=m33[1][1];
-//			dVertical[0][2]=m33[1][2];
-//			dVertical[1][0]=m33[2][0];
-//			dVertical[1][1]=m33[2][1];
-//			dVertical[1][2]=m33[2][2];
-//		}
-//	if (RC[0]==2) // Row #2 deletetd
-//		{
-//			dVertical[0][0]=m33[0][0];
-//			dVertical[0][1]=m33[0][1];
-//			dVertical[0][2]=m33[0][2];
-//			dVertical[1][0]=m33[2][0];
-//			dVertical[1][1]=m33[2][1];
-//			dVertical[1][2]=m33[2][2];
-//		}
-//
-//	if (RC[0]==3) // Row #2 deletetd
-//		{
-//			dVertical[0][0]=m33[0][0];
-//			dVertical[0][1]=m33[0][1];
-//			dVertical[0][2]=m33[0][2];
-//			dVertical[1][0]=m33[1][0];
-//			dVertical[1][1]=m33[1][1];
-//			dVertical[1][2]=m33[1][2];
-//		}
-////------------ End red.rows ------------------
-////-------- Reducing column count ------------------
-//		if(RC[1]==1)  // Column #1 deletetd
-//		{
-//			dHorizontal[0][0]=dVertical[0][1];
-//			dHorizontal[0][1]=dVertical[0][2];
-//			dHorizontal[1][0]=dVertical[1][1];
-//			dHorizontal[1][1]=dVertical[1][2];
-//		}
-//
-//		if(RC[1]==2)  // Column #1 deletetd
-//		{
-//			dHorizontal[0][0]=dVertical[0][0];
-//			dHorizontal[0][1]=dVertical[0][2];
-//			dHorizontal[1][0]=dVertical[1][0];
-//			dHorizontal[1][1]=dVertical[1][2];
-//		}
-//
-//		if(RC[1]==3)  // Column #1 deletetd
-//		{
-//			dHorizontal[0][0]=dVertical[0][0];
-//			dHorizontal[0][1]=dVertical[0][1];
-//			dHorizontal[1][0]=dVertical[1][0];
-//			dHorizontal[1][1]=dVertical[1][1];
-//		}
-////-------- End Reducing column count ------------------
-//
-//cout<<"RC-Vector: ("<<RC[0]<<","<<RC[1]<<")"<<endl;
-//
-////------------alidet piirto------------------------
-//
-//		for(int i=0; i<2;i++)
-//			{
-//				for(int j=0;j<2;j++)
-//				{
-//					cout << dHorizontal[i][j] << "   ";
-//				}
-//				cout << endl << endl;
-//			}
-////----------------------------------------------------
-//
-//
-//
-//
-////------------matriisin piirto------------------------
-//
-//		for(int i=0; i<3;i++)
-//			{
-//				for(int j=0;j<3;j++)
-//				{
-//					cout << m33[i][j] << "   ";
-//				}
-//				cout << endl << endl;
-//			}
-////----------------------------------------------------
-//		subDet=det2(dHorizontal);
-//
-//
-//
-//	return subDet;
-//}	
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////     Käänteismatriisi    ///////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
-//float invm(float m33[3][3])
-//{
-//	float detm33=det3(m33);
-//std::cout << "det mm3: "<<detm33<<endl;
-//// Tarkistetaan matriisin singulaarisuus:
-//if (detm33 != 0)
-//{
-//
-//
-////---------alideterminanttien lasku ja sijoitus sekä jako determinantilla-----------
-//float invm[3][3] = {{0,0,0},{0,0,0},{0,0,0}}; //alustus
-//
-//for(int i=0; i<3; i++)
-//	{
-//		for(int j=0; j<3; j++)
-//		{
-//			int RC[2]={i+1,j+1}; //vektori subDet():lle rivien ja sarakkeiden poistamiseksi.
-//			
-//			invm[i][j]=(subDet(m33, RC)/detm33);
-//			
-//			if (invm[i][j]<0)//if-lause toteuttaa itseisarvon.
-//			{
-//			invm[i][j]=invm[i][j]*pow(float(-1),i+j+1);
-//			}
-//			else
-//			{
-//			invm[i][j]=invm[i][j]=invm[i][j]*pow(float((-1)),i+j);
-//			}
-//		}
-//
-//	}
-////---------transponointi------------------
-//Matic::transpose(invm);
-//
-//
-////------------matriisin piirto------------------------
-//
-////Alkup. Matriisi:
-//cout << "Matriisi:"<<endl;
-//
-//for(int i=0; i<3;i++)
-//	{
-//		for(int j=0;j<3;j++)
-//		{
-//			cout << m33[i][j] << "   ";
-//		}
-//		cout << endl << endl;
-//	}
-//
-////Käänteismatriisi
-//cout << endl << endl << "Kaanteismatriisi:"<<endl;
-//
-//for(int i=0; i<3;i++)
-//	{
-//		for(int j=0;j<3;j++)
-//		{
-//			cout << invm[i][j] << "   ";
-//		}
-//		cout << endl << endl;
-//	}
-////----------------------------------------------------
-//return 1;
-//}
-//else
-//return 0;
-//}
-//
-//
-//
-//float Matic::solve3(float m33[3][3], float ans3[])
-//{
-//	float ans[3] = Matic::mxv(Matic::invm(m33),ans3);
-//	return 0;
-//
-//}
-//
-//
-//Matic::~Matic(void)
-//{
-//}
-//
-//
-//
-//
-//namespace PM
-//{
-//	Vector3::Vector3()
-//		: x(0),
-//		  y(0),
-//		  z(0)
-//	{}
-//
-//	float& Vector3::operator [](int index)
-//	{
-//		return (&x)[index];
-//	}
-//
-//	const float& Vector3::operator [](int index) const
-//	{
-//		return (&x)[index];
-//	}
-//
-//
-//	Matrix3::Matrix3(Vector3 pysty, Vector3 vaaka)
-//	{
-//		for (int i=0; i<3; i++)
-//		{
-//			for(int j=0;j<3; j++)
-//			{
-//				matrix[i][j] = pysty[i] * vaaka[j];
-//			}
-//		}
-//	}
-//}
