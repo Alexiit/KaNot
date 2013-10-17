@@ -11,8 +11,8 @@ namespace Shapes
 	public: 
 		Line();
 		~Line();
-		PM::Vector3 dir;
-		PM::Vector3 dpl;
+		PM::Vector3 dirVec;
+		PM::Vector3 dplVec;
 		PM::Matrix3 eqLine(float);
 	};
 
@@ -30,11 +30,18 @@ namespace Shapes
 	class Rect
 	{
 	public:
-		PM::Vector3 pos;
-		Segm side0;
-		Segm side1;
-		Segm side2;
-		Segm side3;
+		Rect();
+		~Rect();
+		void rotate(float angle);
+
+		float angle;
+		PM::Vector3 m_Pos;
+		float height;
+		float width;
+		Segm right;
+		Segm top;
+		Segm left;
+		Segm bottom;
 	
 	};
 
@@ -44,7 +51,7 @@ namespace Shapes
 	public: 
 		Circl();
 		~Circl();
-		PM::Vector3 pos;
+		PM::Vector3 m_Pos;
 		float radius;
 		PM::Matrix3 eqCircl();
 
@@ -57,7 +64,7 @@ namespace Shapes
 	public: 
 		Elli();
 		~Elli();
-		PM::Vector3 pos;
+		PM::Vector3 m_Pos;
 		PM::Vector3 size;
 		PM::Matrix3 eqElli();
 

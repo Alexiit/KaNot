@@ -434,6 +434,7 @@ namespace PM
 	return angle;
 	}
 
+<<<<<<< HEAD
 	
 	Vector3 Vector3::devScal(float scal)
 	{
@@ -460,4 +461,6 @@ namespace PM
 
 
 
+=======
+>>>>>>> parent of fb3eef2... Vector normalization and devision by scalar
 }

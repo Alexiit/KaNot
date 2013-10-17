@@ -23,9 +23,13 @@ namespace PM
 		float& operator [](int index);
 		float getLenght();
 		const float& operator [](int index) const;
+<<<<<<< HEAD
 		Vector3 normalize();
 		Vector3 devScal(float scal);
 		Vector3 multipScal(float scal);
+=======
+
+>>>>>>> parent of fb3eef2... Vector normalization and devision by scalar
 		bool circleDot(Vector3);
 
 	};
