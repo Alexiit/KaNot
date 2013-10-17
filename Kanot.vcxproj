@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="jni\Engine.cpp" />
     <ClCompile Include="Matic.cpp" />
@@ -86,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calc.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="jni\Engine.h" />
     <ClInclude Include="Matrix.h" />
