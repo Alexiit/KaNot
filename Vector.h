@@ -23,7 +23,8 @@ namespace PM
 		float& operator [](int index);
 		float getLenght();
 		const float& operator [](int index) const;
-
+		Vector3 normalize();
+		Vector3 devScal(float scal);
 		bool circleDot(Vector3);
 
 	};

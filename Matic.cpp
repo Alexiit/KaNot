@@ -434,4 +434,20 @@ namespace PM
 	return angle;
 	}
 
+	
+	Vector3 Vector3::devScal(float scal)
+	{
+	x=x/scal;
+	y=y/scal;
+	//z=z/scal disambled due to z-buffer//
+	}
+
+
+	Vector3 Vector3::normalize()
+	{
+	Vector3 norm;
+	norm = norm.devScal(norm.getLenght());
+	return norm;
+	
+	}
 }
