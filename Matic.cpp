@@ -420,6 +420,18 @@ namespace PM
 	return ans;
 	}
 
+	float Vector3::getLenght()
+	{
+	float lenght;
+	lenght = sqrt(pow(x,2)+pow(y,2));
+	return lenght;
+	}
 
+	float angle(Vector3 vecA, Vector3 vecB)
+	{
+	float angle;
+	angle = acos(vecA.dot(vecB)/(vecA.getLenght()*vecB.getLenght()));
+	return angle;
+	}
 
 }

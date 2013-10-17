@@ -18,8 +18,10 @@ namespace PM
 		Vector3 neg();
 		Vector3 neg(char);
 		Vector3 minus(Vector3);
+		float angle(Vector3 vecA, Vector3 vecB);
 		Vector3 swap(char, char);
 		float& operator [](int index);
+		float getLenght();
 		const float& operator [](int index) const;
 
 		bool circleDot(Vector3);
