@@ -450,4 +450,14 @@ namespace PM
 	return norm;
 	
 	}
+
+	Vector3 Vector3::multipScal(float scal)
+	{
+	x=x*scal;
+	y=y*scal;
+	//z=z*scal disambled due to z-buffer//
+	}
+
+
+
 }

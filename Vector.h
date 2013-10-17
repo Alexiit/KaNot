@@ -25,6 +25,7 @@ namespace PM
 		const float& operator [](int index) const;
 		Vector3 normalize();
 		Vector3 devScal(float scal);
+		Vector3 multipScal(float scal);
 		bool circleDot(Vector3);
 
 	};
