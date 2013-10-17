@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CALC_H
+#define	CALC_H
 #include "vector.h"
 #include "Matrix.h"
 
@@ -31,14 +32,17 @@ namespace PM
 	return product;
 	}
 
-	Vector3 solve(Matrix3 leftM, Vector3 rightV)
+	static Vector3 solve(Matrix3 leftM, Vector3 rightV)
 	{
 		Vector3 ansVec;
 		if(leftM.det()!=0)
-		ansVec = PM::vxm(rightV, leftM.invert());
+			ansVec = PM::vxm(rightV, leftM.invert());
+		else
+			ansVec.x = ansVec.y= ansVec.z = 9001;
 		return ansVec;
 	}
 
 
 
 }
+#endif

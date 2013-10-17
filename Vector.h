@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VECTOR_H
+#define	VECTOR_H
 #include <iostream>
 namespace PM
 {
@@ -12,6 +13,8 @@ namespace PM
 		float dot(Vector3 v2);
 
 		float x,y,z;
+
+		int retPoint();
 
 		Vector3 scal(float);
 		Vector3 plus(Vector3);
@@ -33,3 +36,4 @@ namespace PM
 
 
 
+#endif

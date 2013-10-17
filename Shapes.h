@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SHAPES_H
+#define	SHAPES_H
+
 #include <iostream>
 #include "vector.h"
 #include "Matrix.h"
@@ -33,6 +35,7 @@ namespace Shapes
 		Rect();
 		~Rect();
 		void rotate(float angle);
+		PM::Matrix3 rotM;
 
 		float angle;
 		PM::Vector3 m_Pos;
@@ -72,3 +75,5 @@ namespace Shapes
 
 
 }
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SPRITE_H
+#define	SPRITE_H
+
 #include "calc.h"
 #include "Matrix.h"
 #include "Shapes.h"
@@ -15,3 +17,4 @@ public:
 	
 };
 
+#endif

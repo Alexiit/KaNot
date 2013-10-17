@@ -285,26 +285,26 @@ namespace PM
 	Vector3 Vector3::swap(char a, char b)
 	{
 		Vector3 swap;
-		if(a == 'x' && b == 'y')
+		if(a == 1 && b == 2)
 		{
-			char temp = a;
+			float temp = a;
 			swap.x= y;
 			swap.y=temp;
 			swap.z=z;
 		}
 
-		if(a == 'x' && b == 'z')
+		if(a == 1 && b == 3)
 		{
-			char temp = a;
+			float temp = a;
 			swap.x= z;
 			swap.y=y;
 			swap.z=temp;
 
 		}
 
-		if(a == 'y' && b == 'z')
+		if(a == 2 && b == 3)
 		{
-			char temp = y;
+			float temp = y;
 			swap.x= x;
 			swap.y=z;
 			swap.z=temp;
@@ -339,7 +339,8 @@ namespace PM
 			neg.z=-z;
 
 
-			return neg;}
+		}
+		return neg;
 	}
 
 	Matrix3 Matrix3::scal(float scal)
