@@ -434,13 +434,14 @@ namespace PM
 	return angle;
 	}
 
-<<<<<<< HEAD
 	
 	Vector3 Vector3::devScal(float scal)
 	{
-	x=x/scal;
-	y=y/scal;
-	//z=z/scal disambled due to z-buffer//
+	Vector3 product;
+	product.x=x/scal;
+	product.y=y/scal;
+	//product.z=z/scal disambled due to z-buffer//
+	return product;
 	}
 
 
@@ -454,13 +455,14 @@ namespace PM
 
 	Vector3 Vector3::multipScal(float scal)
 	{
-	x=x*scal;
-	y=y*scal;
-	//z=z*scal disambled due to z-buffer//
+	Vector3 devision;
+	devision.x=x*scal;
+	devision.y=y*scal;
+	return devision;
+	//devision.z=z*scal disambled due to z-buffer//
 	}
 
 
 
-=======
->>>>>>> parent of fb3eef2... Vector normalization and devision by scalar
+
 }

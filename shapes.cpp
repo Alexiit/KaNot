@@ -5,6 +5,8 @@
 #include "Shapes.h"
 #include "Calc.h"
 
+#define FULLANGLE 6.283185
+
 namespace Shapes
 {
 
@@ -36,25 +38,26 @@ namespace Shapes
 
 	void Rect::rotate(float angle)
 	{
-		if(angle > 4.28318)
+		if(angle > FULLANGLE)
 		{
-			angle = angle / 4.28318;
-
+			angle = angle - FULLANGLE;
 		}
-		PM::Matrix3 rotM(cos(angle),-sin(angle),0,sin(angle),cos(angle), 0,0,0,1);
+		PM::Matrix3 rotM(	cos(angle),			-sin(angle),			0,
+							sin(angle),			cos(angle),				0,
+							0,					0,						1		);
 
 
-		Rect.right.line.dirVec = PM::vxm(Rect.right.line.dirVec, rotM); // rotatoi oikean sivun suunta vektorin
-		Rect.right.line.dplVec = PM::vxm(Rect.right.line.dplVec, rotM); // rotatoi siirtymävectorin lokaalin origon (Rect.m_Pos) suhteen.
+		this->right.line.dirVec = PM::vxm(this->right.line.dirVec, rotM); // rotatoi oikean sivun suunta vektorin
+		this->right.line.dplVec = PM::vxm(this->right.line.dplVec, rotM); // rotatoi siirtymävectorin lokaalin origon (Rect.m_Pos) suhteen.
 		
-		Rect.top.line.dirVec = PM::vxm(Rect.top.line.dirVec, rotM);
-		Rect.top.line.dplVec = PM::vxm(Rect.top.line.dplVec, rotM);
+		this->top.line.dirVec = PM::vxm(this->top.line.dirVec, rotM);
+		this->top.line.dplVec = PM::vxm(this->top.line.dplVec, rotM);
 	
-		Rect.left.line.dirVec = PM::vxm(Rect.left.line.dirVec, rotM);
-		Rect.left.line.dplVec = PM::vxm(Rect.left.line.dplVec, rotM);
+		this->left.line.dirVec = PM::vxm(this->left.line.dirVec, rotM);
+		this->left.line.dplVec = PM::vxm(this->left.line.dplVec, rotM);
 	
-		Rect.bottom.line.dirVec = PM::vxm(Rect.bottom.line.dirVec, rotM);
-		Rect.bottom.line.dplVec = PM::vxm(Rect.bottom.line.dplVec, rotM);
+		this->bottom.line.dirVec = PM::vxm(this->bottom.line.dirVec, rotM);
+		this->bottom.line.dplVec = PM::vxm(this->bottom.line.dplVec, rotM);
 
 	}
 

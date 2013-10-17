@@ -11,8 +11,7 @@ namespace PM
 	{
 		Vector3 vertiVec;
 		Vector3 product;
-		for(int x=0; x<3; x++)
-		{
+
 
 				vertiVec.x=rM.matrix[0][0];
 				vertiVec.y=rM.matrix[1][0];
@@ -27,9 +26,9 @@ namespace PM
 				vertiVec.z=rM.matrix[2][2];
 				product.z = lV.dot(vertiVec);
 
-		return product;
-		}
-
+	
+	
+	return product;
 	}
 
 	Vector3 solve(Matrix3 leftM, Vector3 rightV)

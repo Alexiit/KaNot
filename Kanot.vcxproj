@@ -82,6 +82,7 @@
     <ClCompile Include="Matic.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="shapes.cpp" />
+    <ClCompile Include="sprite.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
@@ -92,7 +93,9 @@
     <ClInclude Include="jni\Engine.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="OpenGL.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes.h" />
+    <ClInclude Include="sprite.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Win32toAndroid.h" />
     <ClInclude Include="Window.h" />
