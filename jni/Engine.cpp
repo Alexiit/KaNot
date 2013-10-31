@@ -398,7 +398,7 @@ glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glUniformMatrix4fv(loc3,1,GL_FALSE,GlTranslation);
 	glBindBuffer(GL_ARRAY_BUFFER,VBO2); 
     glDrawArrays(GL_TRIANGLES,0,num_vertices); 
-	
+	/*
 	//2nd VBO
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, Texture);
@@ -413,5 +413,5 @@ glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glVertexAttribPointer(Uv,2,GL_FLOAT,GL_FALSE,5*sizeof(GL_FLOAT),(void*)(sizeof(GL_FLOAT)*3)); 
 
 	glBindBuffer(GL_ARRAY_BUFFER,VBO); 
-    glDrawArrays(GL_TRIANGLES,0,num_vertices);    
+    glDrawArrays(GL_TRIANGLES,0,num_vertices);*/
 }
