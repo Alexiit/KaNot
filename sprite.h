@@ -15,10 +15,10 @@ public:
 
 
 	Shapes::Rect hitBox;
-	Vector3 m_pos;
-	Vector3 m_velocity;
-	Vector3 m_acceleration;
-	Vector3 force;
+	PM::Vector3 m_pos;
+	PM::Vector3 m_velocity;
+	PM::Vector3 m_acceleration;
+	PM::Vector3 force;
 	float max_vel;
 	float mass;
 
