@@ -62,18 +62,6 @@ namespace Shapes
 
 
 
-	class Elli
-	{
-	public: 
-		Elli();
-		~Elli();
-		PM::Vector3 m_Pos;
-		PM::Vector3 size;
-		PM::Matrix3 eqElli();
-
-	};
-
-
 }
 
 #endif

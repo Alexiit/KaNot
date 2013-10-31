@@ -38,8 +38,16 @@ namespace PM
 		if(leftM.det()!=0)
 			ansVec = PM::vxm(rightV, leftM.invert());
 		else
-			ansVec.x = ansVec.y= ansVec.z = 9001;
+			ansVec.x = ansVec.y= ansVec.z = 9001; // if theres no singular answer -> show 9001
 		return ansVec;
+	}
+
+
+
+	static float angleBV(Vector3 vecA, Vector3 vecB)
+	{
+		float ans = acos(Vector3::dot(vecA, vecB)/(vecA.getLenght()*vecB.getLenght()));
+		return ans;
 	}
 
 

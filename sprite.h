@@ -18,6 +18,7 @@ public:
 	PM::Vector3 m_pos;
 	PM::Vector3 m_velocity;
 	PM::Vector3 m_acceleration;
+	PM::Vector3 m_GravityVec;
 	PM::Vector3 force;
 	float max_vel;
 	float mass;
