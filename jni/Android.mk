@@ -20,7 +20,13 @@ LOCAL_MODULE    := libKaNot
 LOCAL_CFLAGS    := -Werror
 LOCAL_SRC_FILES :=  gl_code.cpp \
 					Engine.cpp \
-					FileReader.cpp
+					FileReader.cpp \
+					Quad.cpp \
+					Shader.cpp \
+					Matic.cpp\
+					shapes.cpp
+					
+					
 LOCAL_LDLIBS    := -llog -lGLESv2 -landroid
 
 include $(BUILD_SHARED_LIBRARY)

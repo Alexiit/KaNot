@@ -31,6 +31,7 @@ public:
 		Quad* Quad1;
 		Quad* Quad2;
 		GLuint Texture;
+		GLuint Texture2;
 
 };
 #endif
