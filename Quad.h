@@ -1,4 +1,6 @@
 #pragma once
+#ifndef QUAD
+#define QUAD
 #include <Win32toAndroid.h>
 class Shader;
 class Quad
@@ -11,15 +13,21 @@ public:
 	void Draw(float);
 	void setTexture(GLuint);
 	void setShader(Shader*);
+	static float*Projection;
+
 	~Quad(void);
 private:
-	int x,y,w,h;
+	
 	void GenBuffer();
+	float* Scale;
 	float* Translation;
+	int x,y,w,h;
+	float* Data;
 	float* Rotation;
 	GLuint texid,VBO;
 	Shader* shader;
-	static float*Projection;
+
 
 };
 
+#endif
