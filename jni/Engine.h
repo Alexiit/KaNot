@@ -1,7 +1,7 @@
-#pragma once
 #ifndef ENGINE
 #define ENGINE
 
+#include <debug.h>
 #include <Win32toAndroid.h>
 
 class Shader;

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef Shaders
 #define Shaders
 #include <Win32toAndroid.h>

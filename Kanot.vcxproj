@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="jni\debug.cpp" />
     <ClCompile Include="jni\Engine.cpp" />
     <ClCompile Include="jni\Quad.cpp" />
     <ClCompile Include="jni\Shader.cpp" />
@@ -93,6 +94,7 @@
     <ClInclude Include="calc.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="FileReader.h" />
+    <ClInclude Include="jni\debug.h" />
     <ClInclude Include="jni\Engine.h" />
     <ClInclude Include="jni\Quad.h" />
     <ClInclude Include="jni\Shader.h" />

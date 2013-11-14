@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef QUAD
 #define QUAD
 #include <Win32toAndroid.h>

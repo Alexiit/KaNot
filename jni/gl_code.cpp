@@ -23,33 +23,25 @@
 #include <math.h>
 #include <Engine.h>
 #include <FileReader.h>
+#include <iostream>
+#include <debug.h>
 
 
-static void printGLString(const char *name, GLenum s) {
-    const char *v = (const char *) glGetString(s);
-    LOGI("GL %s = %s\n", name, v);
-}
-
-static void checkGlError(const char* op) {
-    for (GLint error = glGetError(); error; error
-            = glGetError()) {
-        LOGI("after %s() glError (0x%x)\n", op, error);
-    }
-}
 
 Engine* engine;
-
 bool setupGraphics(int w, int h) {
-    printGLString("Version", GL_VERSION);
-    printGLString("Vendor", GL_VENDOR);
-    printGLString("Renderer", GL_RENDERER);
-    printGLString("Extensions", GL_EXTENSIONS);
+    debug::printGLString("Version", GL_VERSION);
+    debug::printGLString("Vendor", GL_VENDOR);
+    debug::printGLString("Renderer", GL_RENDERER);
+    debug::printGLString("Extensions", GL_EXTENSIONS);
 
+	std::cout << "2"<<std::endl;
     LOGI("setupGraphics(%d, %d)", w, h);
-
+std::cout << "3"<<std::endl;
 	engine = new Engine();
-	engine->fixAspectRatio(1000,1000,w,h);
-    checkGlError("glViewport");
+	LOGI("easd");
+	engine->fixAspectRatio(780,1280,w,h);
+	LOGI("far");
     return true;
 }
 
@@ -66,7 +58,9 @@ extern "C" {
 
 JNIEXPORT void JNICALL Java_com_android_KaNot_KaNotLib_init(JNIEnv * env, jobject obj,  jint width, jint height)
 {
+std::cout << "4"<<std::endl;
     setupGraphics(width, height);
+	std::cout << "5"<<std::endl;
 }
 
 JNIEXPORT void JNICALL Java_com_android_KaNot_KaNotLib_step(JNIEnv * env, jobject obj)

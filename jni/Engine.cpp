@@ -30,9 +30,11 @@ void Engine::Update()
 
 void Engine::fixAspectRatio(float desiredWidth,float desiredHeight,float width,float height)
 {
+	//LOGI("asd!9");
 	//Calculate desired Aspect Ratio
 	float dAR =  desiredWidth/ desiredHeight;
-
+	
+	//LOGI("asd!8");
 	//Calculate real Aspect Ratio
 	float rAR = width/height;
 	float w,h;
@@ -57,15 +59,18 @@ void Engine::fixAspectRatio(float desiredWidth,float desiredHeight,float width,f
 	}
 	 w = desiredWidth*Scale;
 	 h = desiredHeight*Scale;
+	//LOGI("asd7!");
 
 	glViewport((int)blackBarH, (int)blackBarV,(int)w,(int)h); // Sets up the OpenGL viewport
-
-
+	debug::checkGlError("GLwiewport");
+	
+	//LOGI("asd!6");
 
 	GLubyte* pixels;
-	
+/////////////////////////////////////////////////////////////
 	FileReader *FR = new FileReader("sword.tga");
-
+	
+	//LOGI("asd!5");
 	
 	unsigned char*buffer = (unsigned char*)malloc(sizeof(unsigned char)*4);
 	//move to position 12, next 4 bytes are size
@@ -98,24 +103,31 @@ void Engine::fixAspectRatio(float desiredWidth,float desiredHeight,float width,f
 	delete FR;
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	debug::checkGlError("glPixel");
 	glGenTextures(1,&Texture);
+	debug::checkGlError("glGentextures");
 	glActiveTexture(GL_TEXTURE0);
+	debug::checkGlError("glActivetexture");
 		
     // Bind the texture object
     glBindTexture(GL_TEXTURE_2D, Texture);
-
+	debug::checkGlError("Bindtexture");
     // Load the texture
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sizex, sizey, 0, GL_RGBA,
                     GL_UNSIGNED_BYTE, pixels);
+	debug::checkGlError("textimage2D");
  
     // Set the filtering mode
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
-
+	debug::checkGlError("textparameteri");
+	
+	LOGI("asd!4");
 	//////////////////////////////////////////////////////////////////////////////////
 	FileReader *FR1 = new FileReader("hammer.tga");
 
 	
+	LOGI("asd!3");
 	
 	unsigned char*buffer1 = (unsigned char*)malloc(sizeof(unsigned char)*4);
 	//move to position 12, next 4 bytes are size
@@ -148,21 +160,26 @@ void Engine::fixAspectRatio(float desiredWidth,float desiredHeight,float width,f
 	delete FR;
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	debug::checkGlError("glPixelStore2");
 	glGenTextures(1,&Texture2);
+	debug::checkGlError("glGenTexture2");
 	glActiveTexture(GL_TEXTURE0);
+	debug::checkGlError("glActiveTexture2");
 		
     // Bind the texture object
     glBindTexture(GL_TEXTURE_2D, Texture2);
-
+	debug::checkGlError("glBindTexture2");
     // Load the texture
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sizex, sizey, 0, GL_RGBA,
                     GL_UNSIGNED_BYTE, pixels);
+	debug::checkGlError("glTextImage2D2");
  
     // Set the filtering mode
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
-
-
+	debug::checkGlError("textparameteri2");
+	
+	LOGI("asd!2");
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -206,7 +223,8 @@ void Engine::fixAspectRatio(float desiredWidth,float desiredHeight,float width,f
 	Quad2->setTexture(Texture2);
 
 	sine = 0;
-
+	
+	LOGI("asd!1");
 
 
  }
@@ -219,6 +237,7 @@ void Engine::Draw()
     //Draw 
     //glClearColor(0,0,1,1); 
 	glClearColor((std::sin(-sine*3)+1)/2,(std::sin(sine*4)+1) / 2,(std::sin(sine*5)+1)/2,1);
+	debug::checkGlError("clearcolor");
     #ifndef ANDROID_FRAMEWORK 
     glClearDepth(1); 
     #else 
@@ -226,6 +245,7 @@ void Engine::Draw()
     #endif 
   
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); 
+	debug::checkGlError("glClear");
 
 	Quad2->Draw(0.6f);
 	Quad1->Draw(0.3f);

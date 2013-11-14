@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEXTURE
+#define TEXTURE
 class Texture
 {
 public:
@@ -8,4 +9,6 @@ public:
 
 
 };
+
+#endif
 

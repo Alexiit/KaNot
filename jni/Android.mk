@@ -17,14 +17,15 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := libKaNot
-LOCAL_CFLAGS    := -Werror
+LOCAL_CFLAGS    := -Werror -D_STLP_USE_SIMPLE_NODE_ALLOC -DANDROID -frtti -fexceptions
 LOCAL_SRC_FILES :=  gl_code.cpp \
 					Engine.cpp \
 					FileReader.cpp \
 					Quad.cpp \
 					Shader.cpp \
-					Matic.cpp\
-					shapes.cpp
+					debug.cpp\
+					../Matic.cpp\
+					../shapes.cpp
 					
 					
 LOCAL_LDLIBS    := -llog -lGLESv2 -landroid
