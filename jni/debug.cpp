@@ -1,14 +1,22 @@
 #include "debug.h"
 
-
-debug::debug(void)
+#ifdef _WIN32
+void PrintToOutput(bool error, const char* format, ...)
 {
-}
+        va_list args;
 
+        char message[10240];
+        va_start(args,format);
+        vsprintf(message,format,args);
+        va_end(args);
 
-debug::~debug(void)
-{
+                
+        OutputDebugStringA("\n");
+        if (error)
+                OutputDebugStringA(" --(ERROR)-- ");
+        OutputDebugStringA(message);
 }
+#endif
 
 void debug::printGLString(const char *name, GLenum s) 
 {

@@ -32,7 +32,7 @@ Window::Window(HINSTANCE instance,const char* windowName,int width,int height)
 	}
 
 	//Creates window and return handle to it (a way to access the windows attributes)
-	handle = CreateWindowA("windowClass", windowName, WS_POPUP, 0, 0, width, height, NULL, NULL, instance, NULL);
+	handle = CreateWindowA("windowClass", windowName, WS_OVERLAPPED, 0, 0, width, height, NULL, NULL, instance, NULL);
 
 	if (handle == NULL)
 	{

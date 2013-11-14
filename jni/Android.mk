@@ -22,6 +22,7 @@ LOCAL_SRC_FILES :=  gl_code.cpp \
 					Engine.cpp \
 					FileReader.cpp \
 					Quad.cpp \
+					Texture.cpp \
 					Shader.cpp \
 					debug.cpp\
 					../Matic.cpp\

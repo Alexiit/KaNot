@@ -3,6 +3,7 @@
 
 #include <debug.h>
 #include <Win32toAndroid.h>
+#include "Texture.h"
 
 class Shader;
 class Quad;
@@ -30,8 +31,8 @@ public:
 		float sine;
 		Quad* Quad1;
 		Quad* Quad2;
-		GLuint Texture;
-		GLuint Texture2;
+		Texture m_texture1;
+		Texture m_texture2;
 
 };
 #endif
