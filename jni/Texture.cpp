@@ -1,7 +1,8 @@
 #include "Texture.h"
 #include <FileReader.h>
-#include "OpenGL.h"
+#include "Win32toAndroid.h"
 #include "debug.h"
+#include <iostream>
 
 
 Texture::Texture()
