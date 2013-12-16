@@ -116,6 +116,8 @@ void Quad::rotate(float r)
 
 void Quad::Draw(float z)
 {
+	glBindBuffer(GL_ARRAY_BUFFER,VBO); 
+
 	glEnableVertexAttribArray(shader->Position);    
 	glEnableVertexAttribArray(shader->Uv);   
 	glUseProgram(shader->Program);
@@ -138,7 +140,7 @@ void Quad::Draw(float z)
 	glUniformMatrix4fv(shader->loc3,1,GL_FALSE,Translation);
 	glUniformMatrix4fv(shader->loc4,1,GL_FALSE,Rotation);
 	glUniformMatrix4fv(shader->loc5,1,GL_FALSE,Scale);
-	glBindBuffer(GL_ARRAY_BUFFER,VBO); 
+	//glBindBuffer(GL_ARRAY_BUFFER,VBO); 
     glDrawArrays(GL_TRIANGLES,0,6); 
 	glDisableVertexAttribArray(shader->Position);    
 	glDisableVertexAttribArray(shader->Uv);   

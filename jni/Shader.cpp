@@ -1,6 +1,7 @@
 #include <Shader.h>
 #include <stdlib.h>
 
+
 GLuint Shader::loadShader(GLenum shaderType, const char* pSource) {
     GLuint shader = glCreateShader(shaderType);
     if (shader) {
@@ -35,6 +36,9 @@ GLuint Shader::loadShader(GLenum shaderType, const char* pSource) {
 
 Shader::Shader(void)
 {
+	
+	opacity = 1;
+
 	static const char gVertexShader[] = 
     "attribute vec3 vPosition;\n"
 	"attribute vec2 vUv;\n"
@@ -56,8 +60,10 @@ Shader::Shader(void)
 	"precision mediump float;\n"
 	"varying vec2 Uv;\n"
 	"uniform sampler2D s_texture;\n"
-    "void main() {\n"
-    "  gl_FragColor = texture2D(s_texture,Uv);\n"
+    "uniform vec3 color; \n"
+	"uniform float opacity; \n"
+	"void main() {\n"
+    "gl_FragColor = texture2D(s_texture,Uv)*1;\n"//opacityn muutokset
     "}\n"; 
 
 	PS = loadShader(GL_FRAGMENT_SHADER,gFragmentShader); 
@@ -81,6 +87,10 @@ Shader::Shader(void)
 	loc3 = glGetUniformLocation(Program, "Translation");
 	loc4 = glGetUniformLocation(Program, "Rotation");
 	loc5 = glGetUniformLocation(Program, "Scale");
+	loc6 = glGetUniformLocation(Program, "color");
+	loc7 = glGetUniformLocation(Program, "opacity");
+
+
 }
 
 
